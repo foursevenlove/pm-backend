@@ -13,5 +13,12 @@
   <select id="getAll" resultMap="basicemp">
       SELECT id, name, gender, birthday, idCard
       FROM employee as emp
+      <where>
+        <if test="searchContent!=null and searchContent!=''">
+            id like concat ('%',#{searchContent}, '%')
+            or name like concat('%', #{searchContent}, '%')
+            or idCard like concat('%', #{searchContent}, '%')
+        </if>
+      </where>
   </select>
 </mapper>

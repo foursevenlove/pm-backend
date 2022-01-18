@@ -28,4 +28,9 @@ public class BasicEmpServiceImpl implements IBasicEmpService {
         map.put("list", result);
         return map;
     }
+
+    @Override
+    public int update(BasicEmp updateEmp) {
+        return basicEmpMapper.updateById(updateEmp);
+    }
 }

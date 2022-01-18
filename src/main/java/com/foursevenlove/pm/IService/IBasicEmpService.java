@@ -8,4 +8,5 @@ import java.util.Map;
 
 public interface IBasicEmpService {
     Map<String, Object> getEmp(Page<BasicEmp> pageInfo,@Param("searchContent") String searchContent);
+    int update(BasicEmp updateEmp);
 }
