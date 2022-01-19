@@ -1,17 +1,17 @@
 package com.foursevenlove.pm.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.foursevenlove.pm.IService.IBasicEmpService;
-import com.foursevenlove.pm.response.BasicEmp;
+import com.foursevenlove.pm.IService.IEmployeeService;
+import com.foursevenlove.pm.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
-public class BasicEmpController {
+public class EmployeeController {
     @Autowired
-    private IBasicEmpService basicEmpService;
+    private IEmployeeService basicEmpService;
 
     @GetMapping("/basicemp")
     public Map<String, Object> getAll(@RequestParam(name = "pageIndex", defaultValue = "1", required = false) Integer currentPage,
@@ -21,7 +21,7 @@ public class BasicEmpController {
     }
 
     @PostMapping("/basicemp")
-    public int updata(@RequestBody BasicEmp updateEmp) {
+    public int updata(@RequestBody Employee updateEmp) {
         return basicEmpService.update(updateEmp);
     }
 
