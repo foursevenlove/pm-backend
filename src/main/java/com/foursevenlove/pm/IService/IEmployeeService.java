@@ -10,4 +10,5 @@ import java.util.Map;
 public interface IEmployeeService {
     Map<String, Object> getEmp(Page<Employee> pageInfo,@Param("searchContent") String searchContent);
     int update(Employee updateEmp);
+    int delete(Integer empId);
 }

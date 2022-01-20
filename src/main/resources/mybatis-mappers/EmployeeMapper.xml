@@ -3,11 +3,15 @@
 <mapper namespace="com.foursevenlove.pm.Mapper.EmployeeMapper">
 
   <select id="getAll" resultType="com.foursevenlove.pm.entity.Employee">
-      SELECT emp.*, na.name as nation
+      SELECT emp.*, na.name as nation, dep.name as department, jl.name as jobLevel, pos.name as position
       FROM employee as emp left join nation as na on emp.nationId = na.id
+        left join department as dep on emp.departmentId = dep.id
+        left join joblevel as jl on emp.jobLevelId = jl.id
+        left join position as pos on emp.posId = pos.id
       <where>
+        deleted = 0
         <if test="searchContent!=null and searchContent!=''">
-            id like concat ('%',#{searchContent}, '%')
+            and id like concat ('%',#{searchContent}, '%')
             or name like concat('%', #{searchContent}, '%')
             or idCard like concat('%', #{searchContent}, '%')
         </if>

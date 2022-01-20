@@ -1,6 +1,7 @@
 package com.foursevenlove.pm.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -119,5 +120,8 @@ public class Employee extends Model<Employee> {
     @TableField("salary")
     private String salary;
 
+    @TableField("deleted")
+    @TableLogic
+    private Integer deleted;
 
 }

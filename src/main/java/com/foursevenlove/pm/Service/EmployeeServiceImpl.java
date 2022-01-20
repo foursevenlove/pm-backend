@@ -34,4 +34,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public int update(Employee updateEmp) {
         return employeeMapper.updateById(updateEmp);
     }
+
+    @Override
+    public int delete(Integer empId) {
+        return employeeMapper.deleteById(empId);
+    }
 }
