@@ -11,9 +11,24 @@
       <where>
         deleted = 0
         <if test="searchContent!=null and searchContent!=''">
-            and id like concat ('%',#{searchContent}, '%')
-            or name like concat('%', #{searchContent}, '%')
-            or idCard like concat('%', #{searchContent}, '%')
+            (and emp.id like concat ('%',#{searchContent}, '%')
+            or emp.name like concat('%', #{searchContent}, '%')
+            or emp.idCard like concat('%', #{searchContent}, '%'))
+        </if>
+        <if test="politicId!=null and politicId!=''">
+          and emp.politicId = #{politicId}
+        </if>
+        <if test="posId!=null and posId!=''">
+          and emp.posId = #{posId}
+        </if>
+        <if test="nationId!=null and nationId!=''">
+          and emp.nationId = #{nationId}
+        </if>
+        <if test="jobLevelId!=null and jobLevelId!=''">
+          and emp.jobLevelId = #{jobLevelId}
+        </if>
+        <if test="engageForm!=null and engageForm!=''">
+          and emp.engageForm = #{engageForm}
         </if>
       </where>
   </select>

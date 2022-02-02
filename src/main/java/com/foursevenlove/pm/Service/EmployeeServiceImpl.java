@@ -19,9 +19,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
     private EmployeeMapper employeeMapper;
 
     @Override
-    public Map<String, Object> getEmp(Page<Employee> pageInfo,String searchContent) {
+    public Map<String, Object> getEmp(Page<Employee> pageInfo,String searchContent, String politicId, String nationId,
+                                      String jobLevelId, String posId, String engageForm) {
         Map<String, Object> map = new HashMap<>();
-        IPage<Employee> basicEmpIPage = employeeMapper.getAll(pageInfo, searchContent);
+        IPage<Employee> basicEmpIPage = employeeMapper.getAll(pageInfo, searchContent, politicId, nationId, jobLevelId, posId, engageForm);
         map.put("pageNum", basicEmpIPage.getPages());
         map.put("pageSize", basicEmpIPage.getSize());
         map.put("total", basicEmpIPage.getTotal());

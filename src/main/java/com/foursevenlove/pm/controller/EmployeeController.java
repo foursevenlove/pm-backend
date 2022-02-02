@@ -16,8 +16,13 @@ public class EmployeeController {
     @GetMapping("/emp")
     public Map<String, Object> getAll(@RequestParam(name = "pageIndex", defaultValue = "1", required = false) Integer currentPage,
                                       @RequestParam(name = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                      @RequestParam(name = "searchContent", required = false) String searchContent) {
-        return EmpService.getEmp(new Page<>(currentPage, pageSize),searchContent);
+                                      @RequestParam(name = "searchContent", required = false) String searchContent,
+                                      @RequestParam(name = "politicId", required = false) String politicId,
+                                      @RequestParam(name = "nationId", required = false) String nationId,
+                                      @RequestParam(name = "jobLevelId", required = false) String jobLevelId,
+                                      @RequestParam(name = "posId", required = false) String posId,
+                                      @RequestParam(name = "engageForm", required = false) String engageForm) {
+        return EmpService.getEmp(new Page<>(currentPage, pageSize),searchContent, politicId, nationId, jobLevelId, posId, engageForm);
     }
 
     @PostMapping("/emp")

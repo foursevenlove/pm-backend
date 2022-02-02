@@ -10,6 +10,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface EmployeeMapper extends BaseMapper<Employee> {
-    IPage<Employee> getAll(Page<?> pageInfo, @Param("searchContent") String searchContent);
+    IPage<Employee> getAll(Page<?> pageInfo, @Param("searchContent") String searchContent,
+                           @Param("politicId") String politicId,
+                           @Param("nationId") String nationId, @Param("jobLevelId") String jobLevelId,
+                           @Param("posId") String posId, @Param("engageForm") String engageForm);
 
 }
